@@ -1,6 +1,6 @@
 #include "Stdafx.h"
 #include "Image.h" // 그려주기 위한 셋팅, 추상화만 진행하고 상속을 해줄 예정. 
-
+#include "Animation.h"
 
 // 동적할당을 통해 상속받은 클래스에서 생성자 호출할때 
 // 이니셜라이저 초기화를 통해 최우선적으로 초기화를 하라는 의미 . 
@@ -710,8 +710,11 @@ void Image::loopRender(HDC hdc, const LPRECT dramArea, int offsetX, int offsetY)
 
 void Image::loopAlphaRender(HDC hdc, const LPRECT dramaArea, int offsetX, int offsetY, BYTE alpha)
 {
+}
 
-
-
+void Image::aniRender(HDC hdc, int destX, int destY, Animation* ani)
+{
+    render(hdc, destX, destY, ani->getFramePos().x, ani->getFramePos().y,
+        ani->getFrameWidth(), ani->getFrameHeight());
 }
 

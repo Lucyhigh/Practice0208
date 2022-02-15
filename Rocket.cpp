@@ -137,7 +137,7 @@ void Rocket::update(void)
 		if (KEYMANAGER->isStayKeyDown(VK_SPACE))
 		{
 			_beamIrradiation = true;
-			_beam->fire(_x, _y - 430);
+			_beam->fire(_x, _y);
 		}
 		else _beamIrradiation = false;
 		break;

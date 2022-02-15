@@ -12,7 +12,7 @@
 
 // 디버깅용 콘솔창
 //!라이브러리
-//#pragma comment(linker,"/entry:WinMainCRTStartup /subsystem:console")
+#pragma comment(linker,"/entry:WinMainCRTStartup /subsystem:console")
 #pragma comment(lib,"Winmm.lib")
 // 알파 블렌드를 사용하기 위한 라이브러리 추가 
 #pragma comment (lib,"msimg32.lib")
@@ -76,7 +76,7 @@ using namespace MY_UTIL;
 
 #ifdef FULLSCREEN
 #define WINSTART_X	 1920 // 모니터에 따라 다름 
-#define WINSTART_Y	 0
+#define WINSTART_Y	 1080
 // GetSystemMetrics 인자로 전달되는 시스템 설정 정보 현황
 // ㄴSM_CXSCREEN / SM_CYSCREEN :  현재 화면 해상도 X, Y축 반환 
 #define WINSIZE_X	 GetSystemMetrics(SM_CXSCREEN)
