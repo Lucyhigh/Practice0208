@@ -32,6 +32,8 @@ HRESULT GameNode::init(bool managerInit)
 		TEMPSOUNDMANAGER->init();
 
 		TIMEMANAGER->init();
+        //텍스트 데이터 매니저 초기화
+        TEXTDATAMANAGER->init();
 	}
 
 	return S_OK;
@@ -60,6 +62,10 @@ void GameNode::release(void)
 		//타임매니저 헤제, 싱글톤 해제
 		TIMEMANAGER->release();
 		TIMEMANAGER->releaseSingleton();
+
+        //타임매니저 헤제, 싱글톤 해제
+        TEXTDATAMANAGER->release();
+        TEXTDATAMANAGER->releaseSingleton();
 	}
 	// DC 해제
 	ReleaseDC(_hWnd, _hdc);

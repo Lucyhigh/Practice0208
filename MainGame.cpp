@@ -40,8 +40,10 @@ void MainGame::release(void)
 
     _aniTest->release();
     SAFE_DELETE(_aniTest);
+
     _missileEffect->release();
     SAFE_DELETE(_missileEffect);
+
     _beamEffect->release();
     SAFE_DELETE(_beamEffect);
 }
@@ -49,10 +51,12 @@ void MainGame::release(void)
 void MainGame::update(void)
 {
     GameNode::update();
+
     _rocket->update();
     _em->update();
-    collision();
     _aniTest->update();
+
+    collision();
 
     /*  _missileEffect->update();
       _beamEffect->update();*/

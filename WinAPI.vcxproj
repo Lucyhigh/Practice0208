@@ -161,6 +161,7 @@
     <ClCompile Include="Minion.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="Rocket.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ShootingEffect.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -172,6 +173,7 @@
     <ClCompile Include="TempSoundTest.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="TextDataManager.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Timer.cpp" />
@@ -201,6 +203,7 @@
     <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="RandomFunction.h" />
     <ClInclude Include="Rocket.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ShootingEffect.h" />
     <ClInclude Include="SingletonBase.h" />
     <ClInclude Include="Stdafx.h" />
@@ -210,6 +213,7 @@
     <ClInclude Include="TempSoundTest.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="TextDataManager.h" />
     <ClInclude Include="TileMap.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Timer.h" />

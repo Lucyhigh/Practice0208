@@ -79,6 +79,8 @@
     <ClCompile Include="ShootingEffect.cpp">
       <Filter>API\ExamClass\ShootingEffect</Filter>
     </ClCompile>
+    <ClCompile Include="TextDataManager.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameNode.h">
@@ -162,6 +164,8 @@
     <ClInclude Include="ShootingEffect.h">
       <Filter>API\ExamClass\ShootingEffect</Filter>
     </ClInclude>
+    <ClInclude Include="TextDataManager.h" />
+    <ClInclude Include="SceneManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="API">

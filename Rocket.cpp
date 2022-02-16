@@ -68,6 +68,30 @@ void Rocket::update(void)
 	_hpBar->update();
 	_hpBar->setGauge(_currentHp, _maxHp);
 
+    if (KEYMANAGER->isOnceKeyDown(VK_F8))
+    {
+        char temp[32];
+        vector<string> data;
+        //itoa int to asuki 정수형을 문자열로 변환
+        //10 은 진수 10진수
+        data.push_back(itoa((int)_x, temp, 10));
+        data.push_back(itoa((int)_y, temp, 10));
+        data.push_back(itoa((int)_currentHp, temp, 10));
+        data.push_back(itoa((int)_maxHp, temp, 10));
+
+        TEXTDATAMANAGER->save("플레이어 상태.txt", data);
+    }
+    if (KEYMANAGER->isOnceKeyDown(VK_F9))
+    {
+        vector<string> vData = TEXTDATAMANAGER->load("플레이어 상태.txt");
+
+        _x = atoi(vData[0].c_str());
+        _y = atoi(vData[1].c_str());
+        _currentHp = atoi(vData[2].c_str());
+        _maxHp = atoi(vData[3].c_str());
+    }
+
+
 	if (KEYMANAGER->isOnceKeyDown('1')) hitDamage(1.0f);
 	if (KEYMANAGER->isOnceKeyDown('2')) hitDamage(-1.0f);
 
