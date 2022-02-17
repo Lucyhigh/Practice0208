@@ -3,7 +3,7 @@
 
 HRESULT StartScene::init(void)
 {
-	IMAGEMANAGER->addImage("시작", "Resources/Images/BackGround/bg.bmp", WINSIZE_X, WINSIZE_Y);
+	IMAGEMANAGER->addImage("시작화면", "Resources/Images/BackGround/BattleField.bmp", WINSIZE_X, WINSIZE_Y);
 
 	wsprintf(_text, "Start Scene");
 

@@ -9,7 +9,7 @@ HRESULT MainGame::init(void) //초기화
 	GameNode::init(TRUE);
 
 	SCENEMANAGER->addScene("슈팅", new ShootingScene);
-	SCENEMANAGER->addScene("시작", new ShootingScene);
+	SCENEMANAGER->addScene("시작", new StartScene);
 	SCENEMANAGER->addScene("픽셀충돌", new PixelScene);
 
 	SCENEMANAGER->changeScene("픽셀충돌");
@@ -22,13 +22,13 @@ void MainGame::release(void)
 	GameNode::release();
 }
 
-void MainGame::update(void) // 갱신
+void MainGame::update(void)
 {
 	GameNode::update();
 	SCENEMANAGER->update();
 }
 
-void MainGame::render(void) // 그려줘
+void MainGame::render(void)
 {
 	//검은색 빈 비트맵
 	//PatBlt() : 사각형 영역을 브러쉬로 채우는 함수

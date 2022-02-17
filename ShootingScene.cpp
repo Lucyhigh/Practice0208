@@ -4,9 +4,7 @@
 HRESULT ShootingScene::init(void)
 {
 	GameNode::init(TRUE);
-
-	//IMAGEMANAGER->addImage("½´ÆÃ ¸Ê", "Resources/Images/BackGround/ShootingBG.bmp", WINSIZE_X, WINSIZE_Y);
-	IMAGEMANAGER->addImage("ÀüÀå", "Resources/Images/BackGround/BattleField.bmp", WINSIZE_X, WINSIZE_Y);
+	IMAGEMANAGER->addImage("ÀüÀå", "Resources/Images/BackGround/ShootingBG.bmp", WINSIZE_X, WINSIZE_Y);
 
 	_rocket = new Rocket;
 	_rocket->init();
