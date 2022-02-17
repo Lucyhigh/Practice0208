@@ -1,16 +1,11 @@
 #pragma once
 #include "GameNode.h"
-struct Player
-{
-	RECT _rcPlayer;
-	bool _isLeft;
-	bool _isWaiting;
-};
+#include "Player.h"
 class FirstScene : public GameNode
 {
 private:
 	Image* _image;
-	Player _player;
+	Player* _player;
 	float _x, _y;
 	int _count;
 	int _indexA;

@@ -4,7 +4,6 @@
 class StartScene : public GameNode
 {
 private:
-	char _text[64];
 
 public:
 	HRESULT init(void);

@@ -162,6 +162,7 @@
     <ClCompile Include="Minion.cpp" />
     <ClCompile Include="PixelCollision.cpp" />
     <ClCompile Include="PixelScene.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -210,6 +211,7 @@
     <ClInclude Include="Minion.h" />
     <ClInclude Include="PixelCollision.h" />
     <ClInclude Include="PixelScene.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="RandomFunction.h" />
     <ClInclude Include="Rocket.h" />

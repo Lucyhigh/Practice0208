@@ -10,14 +10,12 @@ HRESULT MainGame::init(void) //초기화
 {
 	GameNode::init(TRUE);
 
-	//SCENEMANAGER->addScene("슈팅", new ShootingScene);
-	//SCENEMANAGER->addScene("픽셀충돌", new PixelScene);
 	SCENEMANAGER->addScene("타이틀", new StartScene);
 	SCENEMANAGER->addScene("시작", new FirstScene);
 	SCENEMANAGER->addScene("마을", new SecondScene);
 	SCENEMANAGER->addScene("죽음땅", new ThirdScene);
 
-	SCENEMANAGER->changeScene("시작");
+	SCENEMANAGER->changeScene("마을");
 
 	return S_OK;
 }

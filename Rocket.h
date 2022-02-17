@@ -43,7 +43,7 @@ public:
     void render(void);
     void removeMissile(int arrNum);
 
-    void collision(void);
+   // void collision(void);
     void setEnemyManagerMemoryAddress(EnemyManager* em) { _em = em; }
 
     MissileM1* getMissile(void) { return _missile; }
