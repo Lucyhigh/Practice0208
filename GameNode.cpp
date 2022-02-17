@@ -30,10 +30,12 @@ HRESULT GameNode::init(bool managerInit)
 
 		//임시 사운드 매니저 초기화
 		TEMPSOUNDMANAGER->init();
-
+		//타임 매니저 초기화
 		TIMEMANAGER->init();
         //텍스트 데이터 매니저 초기화
         TEXTDATAMANAGER->init();
+		//씬 매니저 초기화
+		SCENEMANAGER->init();
 	}
 
 	return S_OK;
@@ -66,6 +68,9 @@ void GameNode::release(void)
         //타임매니저 헤제, 싱글톤 해제
         TEXTDATAMANAGER->release();
         TEXTDATAMANAGER->releaseSingleton();
+        //씬 매니저 헤제, 싱글톤 해제
+		SCENEMANAGER->release();
+		SCENEMANAGER->releaseSingleton();
 	}
 	// DC 해제
 	ReleaseDC(_hWnd, _hdc);

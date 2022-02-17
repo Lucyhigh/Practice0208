@@ -1,84 +1,43 @@
 #include "Stdafx.h"
 #include "MainGame.h"
+#include "StartScene.h"
+#include "ShootingScene.h"
+#include "PixelScene.h"
 
-HRESULT MainGame::init(void)
+HRESULT MainGame::init(void) //초기화
 {
-    GameNode::init(TRUE);
+	GameNode::init(TRUE);
 
-    //IMAGEMANAGER->addImage("슈팅 맵", "Resources/Images/BackGround/ShootingBG.bmp", WINSIZE_X, WINSIZE_Y);
-    IMAGEMANAGER->addImage("전장", "Resources/Images/BackGround/BattleField.bmp", WINSIZE_X, WINSIZE_Y);
+	SCENEMANAGER->addScene("슈팅", new ShootingScene);
+	SCENEMANAGER->addScene("시작", new ShootingScene);
+	SCENEMANAGER->addScene("픽셀충돌", new PixelScene);
 
-    _rocket = new Rocket;
-    _rocket->init();
-    _em = new EnemyManager;
-    _em->init();
+	SCENEMANAGER->changeScene("픽셀충돌");
 
-    _aniTest = new AniTestScene;
-    _aniTest->init();
-
-    _missileEffect = new MissileEffect;
-    _missileEffect->init();
-
-    _beamEffect = new BeamEffect;
-    _beamEffect->init();
-
-    _em->setRocketMemoryAddress(_rocket);
-    _rocket->setEnemyManagerMemoryAddress(_em);
-
-    _x, _y = 0.0f;
-    return S_OK;
+	return S_OK;
 }
 
 void MainGame::release(void)
 {
-    GameNode::release();
-
-    _rocket->release();
-    SAFE_DELETE(_rocket);
-    _em->release();
-    SAFE_DELETE(_em);
-
-    _aniTest->release();
-    SAFE_DELETE(_aniTest);
-
-    _missileEffect->release();
-    SAFE_DELETE(_missileEffect);
-
-    _beamEffect->release();
-    SAFE_DELETE(_beamEffect);
+	GameNode::release();
 }
 
-void MainGame::update(void)
+void MainGame::update(void) // 갱신
 {
-    GameNode::update();
-
-    _rocket->update();
-    _em->update();
-    _aniTest->update();
-
-    collision();
-
-    /*  _missileEffect->update();
-      _beamEffect->update();*/
-    _y -= 0.2f;
+	GameNode::update();
+	SCENEMANAGER->update();
 }
 
-void MainGame::render(void)
+void MainGame::render(void) // 그려줘
 {
-    PatBlt(getMemDC(), 0, 0, WINSIZE_X, WINSIZE_Y, BLACKNESS);
+	//검은색 빈 비트맵
+	//PatBlt() : 사각형 영역을 브러쉬로 채우는 함수
+	PatBlt(getMemDC(), 0, 0, WINSIZE_X, WINSIZE_Y, BLACKNESS);
+	//==================================================
 
-    //IMAGEMANAGER->render("슈팅 맵", getMemDC());
-    RECT rc = { 0,0, WINSIZE_X, WINSIZE_Y };
-    IMAGEMANAGER->findImage("전장")->loopRender(getMemDC(), &rc, _x, _y);
-    TIMEMANAGER->render(getMemDC());
+	SCENEMANAGER->render();
+	TIMEMANAGER->render(getMemDC());
 
-    _rocket->render();
-    _em->render();
-
-    _aniTest->render();
-    _missileEffect->render();
-    _beamEffect->render();
-
-    this->getBackBuffer()->render(getHDC());
+	//==================================================
+	this->getBackBuffer()->render(getHDC()); //백버퍼의 내용을 HDC에 그린다.
 }
-

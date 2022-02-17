@@ -64,9 +64,6 @@
     <ClCompile Include="ProgressBar.cpp">
       <Filter>API\ProgressBar</Filter>
     </ClCompile>
-    <ClCompile Include="collision.cpp">
-      <Filter>MainGame</Filter>
-    </ClCompile>
     <ClCompile Include="TimeManager.cpp">
       <Filter>API\Manager</Filter>
     </ClCompile>
@@ -77,10 +74,23 @@
       <Filter>Animation</Filter>
     </ClCompile>
     <ClCompile Include="ShootingEffect.cpp">
-      <Filter>API\ExamClass\ShootingEffect</Filter>
+      <Filter>API\ExamClass\ShootingGame\ShootingEffect</Filter>
     </ClCompile>
     <ClCompile Include="TextDataManager.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ShootingScene.cpp">
+      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="collision.cpp">
+      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="PixelCollision.cpp" />
+    <ClCompile Include="PixelScene.cpp" />
+    <ClCompile Include="StartScene.cpp">
+      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameNode.h">
@@ -162,10 +172,20 @@
       <Filter>Animation</Filter>
     </ClInclude>
     <ClInclude Include="ShootingEffect.h">
-      <Filter>API\ExamClass\ShootingEffect</Filter>
+      <Filter>API\ExamClass\ShootingGame\ShootingEffect</Filter>
     </ClInclude>
     <ClInclude Include="TextDataManager.h" />
-    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ShootingScene.h">
+      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelCollision.h" />
+    <ClInclude Include="PixelScene.h" />
+    <ClInclude Include="StartScene.h">
+      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="API">
@@ -213,7 +233,10 @@
     <Filter Include="Animation">
       <UniqueIdentifier>{3248fe14-aa4d-4119-9af6-8a6f638706b2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API\ExamClass\ShootingEffect">
+    <Filter Include="API\ExamClass\ShootingGame\Scene">
+      <UniqueIdentifier>{5d595346-4a13-4989-8775-c38e4ab68e16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API\ExamClass\ShootingGame\ShootingEffect">
       <UniqueIdentifier>{e21da2b0-3546-453c-9be7-502611ab946f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

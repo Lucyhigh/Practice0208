@@ -56,6 +56,7 @@ using namespace std;
 #include "Utils.h"
 #include "TimeManager.h"
 #include "TextDataManager.h"
+#include "SceneManager.h"
 using namespace MY_UTIL;
 
 //========================
@@ -68,6 +69,7 @@ using namespace MY_UTIL;
 #define TEMPSOUNDMANAGER TempSoundManager::getSingleton()
 #define TIMEMANAGER TimeManager::getSingleton()
 #define TEXTDATAMANAGER TextDataManager::getSingleton()
+#define SCENEMANAGER SceneManager::getSingleton()
 //============================
 // # 매크로 # (윈도우창 초기화)
 //============================

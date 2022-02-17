@@ -1,7 +1,7 @@
 #include "Stdafx.h"
-#include "MainGame.h"
+#include "ShootingScene.h"
 
-void MainGame::collision(void)
+void ShootingScene::collision(void)
 {
     for (int i = 0; i < _rocket->getMissile()->getBullet().size(); i++)
     {
