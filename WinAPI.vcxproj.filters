@@ -76,20 +76,35 @@
     <ClCompile Include="ShootingEffect.cpp">
       <Filter>API\ExamClass\ShootingGame\ShootingEffect</Filter>
     </ClCompile>
-    <ClCompile Include="TextDataManager.cpp" />
     <ClCompile Include="ShootingScene.cpp">
-      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+      <Filter>API\ExamClass\Scene</Filter>
     </ClCompile>
     <ClCompile Include="collision.cpp">
-      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+      <Filter>API\ExamClass\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="PixelCollision.cpp" />
-    <ClCompile Include="PixelScene.cpp" />
     <ClCompile Include="StartScene.cpp">
-      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+      <Filter>API\ExamClass\Scene</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
-      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+      <Filter>API\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="PixelScene.cpp">
+      <Filter>API\Pixel</Filter>
+    </ClCompile>
+    <ClCompile Include="PixelCollision.cpp">
+      <Filter>API\Pixel</Filter>
+    </ClCompile>
+    <ClCompile Include="TextDataManager.cpp">
+      <Filter>API\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondScene.cpp">
+      <Filter>API\ExamClass\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdScene.cpp">
+      <Filter>API\ExamClass\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="FirstScene.cpp">
+      <Filter>API\ExamClass\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -174,17 +189,32 @@
     <ClInclude Include="ShootingEffect.h">
       <Filter>API\ExamClass\ShootingGame\ShootingEffect</Filter>
     </ClInclude>
-    <ClInclude Include="TextDataManager.h" />
     <ClInclude Include="ShootingScene.h">
-      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+      <Filter>API\ExamClass\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="PixelCollision.h" />
-    <ClInclude Include="PixelScene.h" />
     <ClInclude Include="StartScene.h">
-      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+      <Filter>API\ExamClass\Scene</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
-      <Filter>API\ExamClass\ShootingGame\Scene</Filter>
+      <Filter>API\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelCollision.h">
+      <Filter>API\Pixel</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelScene.h">
+      <Filter>API\Pixel</Filter>
+    </ClInclude>
+    <ClInclude Include="TextDataManager.h">
+      <Filter>API\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondScene.h">
+      <Filter>API\ExamClass\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdScene.h">
+      <Filter>API\ExamClass\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="FirstScene.h">
+      <Filter>API\ExamClass\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -233,11 +263,14 @@
     <Filter Include="Animation">
       <UniqueIdentifier>{3248fe14-aa4d-4119-9af6-8a6f638706b2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API\ExamClass\ShootingGame\Scene">
-      <UniqueIdentifier>{5d595346-4a13-4989-8775-c38e4ab68e16}</UniqueIdentifier>
-    </Filter>
     <Filter Include="API\ExamClass\ShootingGame\ShootingEffect">
       <UniqueIdentifier>{e21da2b0-3546-453c-9be7-502611ab946f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API\Pixel">
+      <UniqueIdentifier>{bb1b2208-3ac4-410e-92d3-4e03e2195b4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API\ExamClass\Scene">
+      <UniqueIdentifier>{5d595346-4a13-4989-8775-c38e4ab68e16}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

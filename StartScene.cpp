@@ -3,7 +3,7 @@
 
 HRESULT StartScene::init(void)
 {
-	IMAGEMANAGER->addImage("시작화면", "Resources/Images/BackGround/BattleField.bmp", WINSIZE_X, WINSIZE_Y);
+	IMAGEMANAGER->addImage("타이틀배경", "Resources/Images/BackGround/Title.bmp", WINSIZE_X, WINSIZE_Y);
 
 	wsprintf(_text, "Start Scene");
 
@@ -18,13 +18,13 @@ void StartScene::update(void)
 {
 	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON))
 	{
-		SCENEMANAGER->changeScene("슈팅");
+		SCENEMANAGER->changeScene("시작");
 	}
 }
 
 void StartScene::render(void)
 {
-	IMAGEMANAGER->render("시작화면", getMemDC());
+	IMAGEMANAGER->render("타이틀배경", getMemDC());
 
 	TextOut(getMemDC(), CENTER_X, CENTER_Y, _text, strlen(_text));
 }

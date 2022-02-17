@@ -11,7 +11,6 @@ public:
     void update(void);
     void render(void);
 
-    //void collision(void);
 public:
     MainGame() {}
     ~MainGame() {}

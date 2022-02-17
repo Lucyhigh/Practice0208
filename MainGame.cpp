@@ -1,18 +1,23 @@
 #include "Stdafx.h"
 #include "MainGame.h"
 #include "StartScene.h"
-#include "ShootingScene.h"
-#include "PixelScene.h"
+#include "FirstScene.h"
+#include "SecondScene.h"
+#include "ThirdScene.h"
+
 
 HRESULT MainGame::init(void) //초기화
 {
 	GameNode::init(TRUE);
 
-	SCENEMANAGER->addScene("슈팅", new ShootingScene);
-	SCENEMANAGER->addScene("시작", new StartScene);
-	SCENEMANAGER->addScene("픽셀충돌", new PixelScene);
+	//SCENEMANAGER->addScene("슈팅", new ShootingScene);
+	//SCENEMANAGER->addScene("픽셀충돌", new PixelScene);
+	SCENEMANAGER->addScene("타이틀", new StartScene);
+	SCENEMANAGER->addScene("시작", new FirstScene);
+	SCENEMANAGER->addScene("마을", new SecondScene);
+	SCENEMANAGER->addScene("죽음땅", new ThirdScene);
 
-	SCENEMANAGER->changeScene("픽셀충돌");
+	SCENEMANAGER->changeScene("시작");
 
 	return S_OK;
 }
