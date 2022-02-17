@@ -18,7 +18,8 @@ public:
 	void render(void);
 
 	void setGauge(float currentScore, float maxScore);
-
+	int getX() { return _x; }
+	int getY() { return _y; }
 	void setX(int x) { _x = x; }
 	void setY(int y) { _y = y; }
 public:

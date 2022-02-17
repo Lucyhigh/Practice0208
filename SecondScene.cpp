@@ -12,7 +12,7 @@ HRESULT SecondScene::init(void)
 	_npcRc = RectMakeCenter(_x, _y, _image->getWidth(), _image->getHeight());
 	_player = new Player;
 	_player->init();
-	_player->setPlayerRect(87);
+	_player->setPlayerPos(630);
 	_count = 0;
 	_indexA = 0;
 	return S_OK;
@@ -27,7 +27,7 @@ void SecondScene::update(void)
 {
 	_count++;
 	_player->update();
-	if (_npcRc.left - 100 < _player->getPlayerRect().left && _player->getPlayerRect().left < _npcRc.left + 100)
+	if (_npcRc.left-100< _player->getPlayerRect().left&& _player->getPlayerRect().left< _npcRc.left+100)
 	{
 		if (_ptMouse.x > CENTER_X - 300 && _ptMouse.y > CENTER_Y)
 		{
@@ -45,13 +45,13 @@ void SecondScene::update(void)
 		}
 	}
 
-	if (_player->getPlayerRect().left > 1100)
+	if (_player->getPlayerPos() > 1850)
 	{
-		_player->setPlayerRect(1100);
+		_player->setPlayerPos(1850);
 	}
-	else if (_player->getPlayerRect().left < 10)
+	else if (_player->getPlayerPos() < 800)
 	{
-		_player->setPlayerRect(10);
+		_player->setPlayerPos(800);
 	}
 	if (_count % 10 == 0)
 	{
@@ -67,6 +67,8 @@ void SecondScene::update(void)
 
 void SecondScene::render(void)
 {
+
+
 	IMAGEMANAGER->render("마을화면", getMemDC());
 
 	IMAGEMANAGER->frameRender("고양이", getMemDC(), _npcRc.left, _npcRc.top);

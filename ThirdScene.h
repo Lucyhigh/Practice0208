@@ -6,7 +6,8 @@ class ThirdScene : public GameNode
 {
 private:
 	Player* _player;
-
+	int _bgAlpha;
+	int _count;
 public:
 	HRESULT init(void);
 	void release(void);

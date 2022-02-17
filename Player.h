@@ -12,6 +12,7 @@ private:
 	int _count;
 	int _indexA;
 	int _indexB;
+	int _indexC;
 	int _alphaA;
 	float _currentHp;
 	float _maxHp;
@@ -26,8 +27,10 @@ public:
 	void update(void);
 	void render(void);
 
+	float getPlayerPos();
+	void setPlayerPos(float x);
 	RECT getPlayerRect();
-	void setPlayerRect(int rcPos);
+
 
 	bool getLeft();
 	bool getWaiting();
@@ -35,15 +38,8 @@ public:
 	bool setLive(bool status);
 	bool getThird();
 	bool setThird(bool isThird);
-	void hitDamage(float damage)
-	{
-		if (_currentHp <= 0)
-		{
-			_currentHp = 0;
-			return;
-		}
-		_currentHp -= damage;
-	}
+	void hitDamage(float damage);
+	
 	Player():_isLeft(false),_isWaiting(true),_isLive(true), _isThird(false){}
 	~Player() {}
 };
