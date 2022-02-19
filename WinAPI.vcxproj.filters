@@ -76,9 +76,6 @@
     <ClCompile Include="ShootingEffect.cpp">
       <Filter>API\ExamClass\ShootingGame\ShootingEffect</Filter>
     </ClCompile>
-    <ClCompile Include="ShootingScene.cpp">
-      <Filter>API\ExamClass\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="collision.cpp">
       <Filter>API\ExamClass\Scene</Filter>
     </ClCompile>
@@ -106,7 +103,21 @@
     <ClCompile Include="FirstScene.cpp">
       <Filter>API\ExamClass\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ShootingScene.cpp">
+      <Filter>API\ExamClass\ShootingGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>API\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>API\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Store</Filter>
+    </ClCompile>
+    <ClCompile Include="Store.cpp">
+      <Filter>Store</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameNode.h">
@@ -190,9 +201,6 @@
     <ClInclude Include="ShootingEffect.h">
       <Filter>API\ExamClass\ShootingGame\ShootingEffect</Filter>
     </ClInclude>
-    <ClInclude Include="ShootingScene.h">
-      <Filter>API\ExamClass\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="StartScene.h">
       <Filter>API\ExamClass\Scene</Filter>
     </ClInclude>
@@ -217,7 +225,21 @@
     <ClInclude Include="FirstScene.h">
       <Filter>API\ExamClass\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="ShootingScene.h">
+      <Filter>API\ExamClass\ShootingGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>API\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>API\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Store</Filter>
+    </ClInclude>
+    <ClInclude Include="Store.h">
+      <Filter>Store</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="API">
@@ -273,6 +295,12 @@
     </Filter>
     <Filter Include="API\ExamClass\Scene">
       <UniqueIdentifier>{5d595346-4a13-4989-8775-c38e4ab68e16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Store">
+      <UniqueIdentifier>{da616956-659c-4cc2-9f3c-1886e6c9f3f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API\Player">
+      <UniqueIdentifier>{5cb9168e-f640-42a5-8957-b0b3f38ef300}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

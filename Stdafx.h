@@ -57,6 +57,8 @@ using namespace std;
 #include "TimeManager.h"
 #include "TextDataManager.h"
 #include "SceneManager.h"
+//#include "Player.h"
+
 using namespace MY_UTIL;
 
 //========================
@@ -70,6 +72,8 @@ using namespace MY_UTIL;
 #define TIMEMANAGER TimeManager::getSingleton()
 #define TEXTDATAMANAGER TextDataManager::getSingleton()
 #define SCENEMANAGER SceneManager::getSingleton()
+//#define PLAYER Player::getSingleton()
+
 //============================
 // # 매크로 # (윈도우창 초기화)
 //============================

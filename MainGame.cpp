@@ -4,7 +4,8 @@
 #include "FirstScene.h"
 #include "SecondScene.h"
 #include "ThirdScene.h"
-
+#include "Inventory.h"
+#include "Store.h"
 
 HRESULT MainGame::init(void) //초기화
 {
@@ -14,6 +15,9 @@ HRESULT MainGame::init(void) //초기화
 	SCENEMANAGER->addScene("시작", new FirstScene);
 	SCENEMANAGER->addScene("마을", new SecondScene);
 	SCENEMANAGER->addScene("죽음땅", new ThirdScene);
+
+	SCENEMANAGER->addScene("인벤토리", new Inventory);
+	SCENEMANAGER->addScene("상점", new Store);
 
 	SCENEMANAGER->changeScene("마을");
 

@@ -2,10 +2,7 @@
 #include "TextDataManager.h"
 
 
-HRESULT TextDataManager::init(void)
-{
-
-
+HRESULT TextDataManager::init(void){
     return S_OK;
 }
 
@@ -21,13 +18,13 @@ void TextDataManager::save(const char * fileName, vector<string> vStr)
     DWORD write;
     /*
     strcpy:문자열 복사함수
-            /기능이 확장됨 복사의 크기를 못정해서 나온것들
+         //이 아래는 위에서 기능이 확장됨 복사의 크기를 못정해서 나온것들
     strnpy_s:
     strnpy_s:
     strncpy_s:복사할 크기를 인자로 잡아줄수있다(길이값들어감)-끝에 자동으로 NULL 문자 삽입
     strlen
-
     */
+
     strncpy_s(str, SAVE_BUFFER, vectorArrayCombine(vStr), SAVE_BUFFER - 1);
 
     /*
@@ -83,7 +80,6 @@ vector<string> TextDataManager::load(const char * fileName)
     DWORD read;
 
     memset(str, 0, LOAD_BUFFER);
-    //
     //OPEN_EXISTING:존재하면 연다.
     file = CreateFile(fileName, GENERIC_READ, 0, NULL, OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL,NULL);
 
@@ -110,7 +106,7 @@ vector<string> TextDataManager::charArraySeparation(char charArray[])
     tokenA = strtok_s(charArray, separator, &tokenB);
     vArray.push_back(tokenA);
     
-    while (NULL != (tokenA = strtok_s(NULL, separator, &tokenB)))
+    while(NULL != (tokenA = strtok_s(NULL, separator, &tokenB)))
     {
         vArray.push_back(tokenA);
     }

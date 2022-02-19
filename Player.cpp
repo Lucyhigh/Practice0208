@@ -17,7 +17,7 @@ HRESULT Player::init(void)
 	_currentHp = 10;
 	_maxHp = 10;
 	_hpBar = new ProgressBar;
-	_hpBar->init(120, WINSIZE_Y - 250, 52, 4);
+	_hpBar->init(280, WINSIZE_Y - 250, 52, 4);
 	return S_OK;
 }
 

@@ -36,6 +36,8 @@ HRESULT GameNode::init(bool managerInit)
         TEXTDATAMANAGER->init();
 		//씬 매니저 초기화
 		SCENEMANAGER->init();
+
+       // PLAYER->init();
 	}
 
 	return S_OK;
@@ -71,6 +73,9 @@ void GameNode::release(void)
         //씬 매니저 헤제, 싱글톤 해제
 		SCENEMANAGER->release();
 		SCENEMANAGER->releaseSingleton();
+
+        //PLAYER->release();
+		//PLAYER->releaseSingleton();
 	}
 	// DC 해제
 	ReleaseDC(_hWnd, _hdc);

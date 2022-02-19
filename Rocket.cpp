@@ -73,7 +73,7 @@ void Rocket::update(void)
         char temp[32];
         vector<string> data;
         //itoa int to asuki 정수형을 문자열로 변환
-        //10 은 진수 10진수
+        //Radix 10 은 진수 10진수
         data.push_back(itoa((int)_x, temp, 10));
         data.push_back(itoa((int)_y, temp, 10));
         data.push_back(itoa((int)_currentHp, temp, 10));
@@ -90,7 +90,6 @@ void Rocket::update(void)
         _currentHp = atoi(vData[2].c_str());
         _maxHp = atoi(vData[3].c_str());
     }
-
 
 	if (KEYMANAGER->isOnceKeyDown('1')) hitDamage(1.0f);
 	if (KEYMANAGER->isOnceKeyDown('2')) hitDamage(-1.0f);
@@ -129,10 +128,6 @@ void Rocket::update(void)
 		_setWeapon = MINIROCKET;
 	}
 	if (KEYMANAGER->isOnceKeyDown(VK_F4))//레이저
-	{
-		_setWeapon = BEAM;
-	}
-	if (KEYMANAGER->isOnceKeyDown(VK_F5))//레이저2
 	{
 		_setWeapon = BEAM;
 	}

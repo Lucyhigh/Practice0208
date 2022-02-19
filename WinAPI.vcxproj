@@ -155,6 +155,8 @@
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageClass.cpp" />
     <ClCompile Include="ImageManager.cpp" />
+    <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="MainGame.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -174,6 +176,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Store.cpp" />
     <ClCompile Include="TempSoundManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -204,6 +207,8 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageClass.h" />
     <ClInclude Include="ImageManager.h" />
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="MainGame.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -222,6 +227,7 @@
     <ClInclude Include="SingletonBase.h" />
     <ClInclude Include="StartScene.h" />
     <ClInclude Include="Stdafx.h" />
+    <ClInclude Include="Store.h" />
     <ClInclude Include="TempSoundManager.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>

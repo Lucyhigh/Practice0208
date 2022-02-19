@@ -1,12 +1,14 @@
 #pragma once
 #include "GameNode.h"
 #include "ProgressBar.h"
+#include "Inventory.h"
 class Player : public GameNode
 {
 private:
 	Image* _image;
 	ProgressBar* _hpBar;
 	RECT _rcPlayer;
+    Inventory* _inventory;
 
 	float _x, _y;
 	int _count;
