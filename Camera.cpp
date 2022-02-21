@@ -3,7 +3,7 @@
 
 Camera::Camera()
 {
-   _trace.x = 0;
+   _trace.x = 100;
    _trace.y = 0;
    _count = 0;
    //_screen = RectMakeCenter(_trace.x, _trace.y, _trace.x+SCREEN_SIZE, _trace.y + SCREEN_SIZE);

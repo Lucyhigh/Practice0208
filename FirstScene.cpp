@@ -21,10 +21,10 @@ void FirstScene::update(void)
 {
 	_player->update();
 
-	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON) || _player->getPlayerPosX() > 1570)
+	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON) || _player->getPlayerPosX() > 1540)
 	{
 		//SCENEMANAGER->changeScene("¸¶À»");
-        _player->setPlayerPosX(1570);
+        _player->setPlayerPosX(1540);
 	}
 
 	if (_player->getPlayerPosX() < 700)

@@ -101,7 +101,7 @@ void Player::update(void)
 			_x += _speed;
             if (_playerPos.x >= WINSIZE_X-100)
             {
-                _playerPos.x = WINSIZE_X;
+                //_playerPos.x = WINSIZE_X;
             }
             else
             {
