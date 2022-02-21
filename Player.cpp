@@ -18,9 +18,8 @@ HRESULT Player::init(void)
     _playerPos.x = 0;
    // _playerPos.y = WINSIZE_Y-170;
     _playerPos.y =0 ;
-    _camera = new Camera;
-    _camera->init();
-    _camera->setCameraPos(_playerPos);
+    
+    //_camera->setCameraPos(_playerPos);
 
 	_currentHp = 10;
 	_maxHp = 10;
@@ -31,8 +30,6 @@ HRESULT Player::init(void)
 
 void Player::release(void)
 {
-    _camera->release();
-    SAFE_DELETE(_camera);
 	_hpBar->release();
 	SAFE_DELETE(_hpBar);
 }
@@ -47,7 +44,6 @@ void Player::update(void)
 	}
 	if (_isLive)
 	{
-        _camera->update();//나중에 양끝 조건식주기
 		if (_isWaiting && _count % 5 == 0)
 		{
 			if (_isLeft)
@@ -99,9 +95,9 @@ void Player::update(void)
 			_isLeft = false;
 			_isWaiting = false;
 			_x += _speed;
-            if (_playerPos.x >= WINSIZE_X-100)
+            if (_playerPos.x >= WINSIZE_X)
             {
-                //_playerPos.x = WINSIZE_X;
+                _playerPos.x = WINSIZE_X;
             }
             else
             {
@@ -129,16 +125,10 @@ void Player::update(void)
 		}
 		_rcPlayer = RectMakeCenter(_x, _y, _image->getWidth(), _image->getHeight());
 	}
-
-    _camera->setCameraPos(_playerPos);
 }
 
 void Player::render(void)
 {
-	cout << getPlayerPosX()<<", 카메라x"<< _playerPos.x<< ", 카메라 y"<< _playerPos.y<<
-        ", 넴모왼" << _camera->getScreenRect().left << ", 넴모탑 " << _camera->getScreenRect().top <<
-        ", 넴모우" << _camera->getScreenRect().right << ", 넴모바텀 " << _camera->getScreenRect().bottom << endl;
-
 	if (_isThird)
 	{
 		_hpBar->render();
@@ -147,16 +137,15 @@ void Player::render(void)
 	{
 		if (_isWaiting)
 		{
-			IMAGEMANAGER->frameRender("캐릭터대기", getMemDC(), _rcPlayer.left- _camera->getCameraPos().x,
-                                                               _rcPlayer.top - _camera->getCameraPos().y);
+			IMAGEMANAGER->frameRender("캐릭터대기", getMemDC(), _rcPlayer.left,
+                                                               _rcPlayer.top);
 		}
 		else
 		{
-			IMAGEMANAGER->frameRender("캐릭터이동", getMemDC(), _rcPlayer.left - _camera->getCameraPos().x,
-                                                               _rcPlayer.top - _camera->getCameraPos().y);
+			IMAGEMANAGER->frameRender("캐릭터이동", getMemDC(), _rcPlayer.left,
+                                                               _rcPlayer.top);
 		}
 	}
-    _camera->render();
 }
 
 POINT Player::setPlayerPosXY()

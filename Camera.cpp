@@ -21,11 +21,12 @@ void Camera::release(void){
 
 void Camera::update(void)
 {
-   
+    _screen = RectMakeCenter(_trace.x, _trace.y, WINSIZE_X, WINSIZE_Y);
 }
 
 void Camera::render(void)
 {
+    
     //Rectangle(getMemDC(),_screen.left,_screen.top,_screen.right,_screen.bottom);
 }
 

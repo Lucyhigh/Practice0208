@@ -11,7 +11,7 @@ private:
 	ProgressBar* _hpBar;
 	RECT _rcPlayer;
     Inventory* _inventory;
-    Camera* _camera;
+    
     POINT _playerPos;
 
 	float _x, _y;
