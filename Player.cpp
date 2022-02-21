@@ -6,10 +6,10 @@ HRESULT Player::init(void)
 	_image = IMAGEMANAGER->addFrameImage("캐릭터대기", "Resources/Images/Object/playerIdle.bmp", 1664, 146, 13, 2, true, RGB(255, 0, 255));
 	_image = IMAGEMANAGER->addFrameImage("캐릭터이동", "Resources/Images/Object/playerRun.bmp", 1106, 140, 14, 2, true, RGB(255, 0, 255));
 	
-	_x = CENTER_X;
+	_x = 0;
 	_y = WINSIZE_Y-35;
-	_rcPlayer = RectMakeCenter(_x, _y, _image->getWidth(), _image->getHeight());
-	//_rcPlayer = RectMakeCenter(_x, _y, _image->getFrameWidth(), _image->getFrameHeight());
+	//_rcPlayer = RectMakeCenter(_x, _y, _image->getWidth(), _image->getHeight());
+	_rcPlayer = RectMakeCenter(_x, _y, _image->getFrameWidth(), _image->getFrameHeight());
 	
 	_count = 0;
 	_indexA = _indexB = 0;
@@ -123,7 +123,7 @@ void Player::update(void)
 		{
 			hitDamage(0.5f);
 		}
-		_rcPlayer = RectMakeCenter(_x, _y, _image->getWidth(), _image->getHeight());
+		_rcPlayer = RectMakeCenter(_x, _y, _image->getFrameWidth(), _image->getFrameHeight());
 	}
 }
 
@@ -148,11 +148,6 @@ void Player::render(void)
 	}
 }
 
-POINT Player::setPlayerPosXY()
-{
-    return _playerPos;
-}
-
 float Player::getPlayerPosX()
 {
 	return _x;
@@ -161,6 +156,10 @@ float Player::getPlayerPosX()
 void Player::setPlayerPosX(float x)
 {
 	_x = x;
+}
+void Player::setPlayerPosY(float y)
+{
+	_y = y;
 }
 
 RECT Player::getPlayerRect()
