@@ -34,9 +34,10 @@ public:
 	void update(void);
 	void render(void);
 
-    POINT setPlayerPosXY();
 	float getPlayerPosX();
 	void setPlayerPosX(float x);
+
+    void setPlayerPosY(float y);
 	RECT getPlayerRect();
 
 

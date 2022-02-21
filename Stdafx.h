@@ -93,8 +93,8 @@ using namespace MY_UTIL;
 #else
 #define WINSTART_X	 400
 #define WINSTART_Y	 0
-#define WINSIZE_X	 600
-#define WINSIZE_Y	 400
+#define WINSIZE_X	 1200
+#define WINSIZE_Y	 800
 #define WINSTYLE	 WS_CAPTION | WS_SYSMENU
 #endif 
 
