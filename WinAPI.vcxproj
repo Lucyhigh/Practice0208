@@ -145,6 +145,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AniTestScene.cpp" />
     <ClCompile Include="Bullets.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AniTestScene.h" />
     <ClInclude Include="Bullets.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="CommonMacroFunction.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyManager.h" />

@@ -12,7 +12,7 @@ HRESULT SecondScene::init(void)
 	_npcRc = RectMakeCenter(_x, _y, _image->getWidth(), _image->getHeight());
 	_player = new Player;
 	_player->init();
-	_player->setPlayerPos(630);
+	_player->setPlayerPosX(630);
 	_count = 0;
 	_indexA = 0;
 	return S_OK;
@@ -48,13 +48,13 @@ void SecondScene::update(void)
         }
 	}
 
-	if (_player->getPlayerPos() > 1850)
+	if (_player->getPlayerPosX() > 1850)
 	{
-		_player->setPlayerPos(1850);
+		_player->setPlayerPosX(1850);
 	}
-	else if (_player->getPlayerPos() < 800)
+	else if (_player->getPlayerPosX() < 800)
 	{
-		_player->setPlayerPos(800);
+		_player->setPlayerPosX(800);
 	}
 	if (_count % 10 == 0)
 	{

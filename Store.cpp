@@ -9,10 +9,10 @@ HRESULT Store::init(void)
     _image = IMAGEMANAGER->addFrameImage("아이템선택버튼", "Resources/Images/Object/Items.bmp", 288, 72, 4, 1, true, RGB(255, 0, 255));
 
     _item = new Item;
-    for (int i = 0; i <= _item->getItemInfo().size; i++)
+  /*  for (int i = 0; i <= _item->getItemInfo().size; i++)
     {
         _itemIlst.push_back(_item->getItemInfo()[i]);
-    }
+    }*/
     _moveY = 212;
     return S_OK;
 }

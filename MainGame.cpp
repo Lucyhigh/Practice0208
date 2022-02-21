@@ -19,7 +19,7 @@ HRESULT MainGame::init(void) //초기화
 	SCENEMANAGER->addScene("인벤토리", new Inventory);
 	SCENEMANAGER->addScene("상점", new Store);
 
-	SCENEMANAGER->changeScene("마을");
+	SCENEMANAGER->changeScene("시작");
 
 	return S_OK;
 }

@@ -1,11 +1,14 @@
 #pragma once
 #include "GameNode.h"
 #include "Player.h"
+#include "Camera.h"
+
 class FirstScene : public GameNode
 {
 private:
 	Image* _image;
 	Player* _player;
+    Camera* _camera;
 	float _x, _y;
 	int _count;
 	int _indexA;

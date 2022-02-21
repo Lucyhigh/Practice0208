@@ -118,6 +118,7 @@
     <ClCompile Include="Store.cpp">
       <Filter>Store</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameNode.h">
@@ -240,6 +241,7 @@
     <ClInclude Include="Store.h">
       <Filter>Store</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="API">

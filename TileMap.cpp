@@ -34,7 +34,7 @@ void TileMap::update(void)
 	if (KEYMANAGER->isOnceKeyDown('3'))
 	{
 		tileNum = 3;
-		cout << "tileNum " << tileNum << endl;
+		//cout << "tileNum " << tileNum << endl;
 
 	}
 
@@ -66,7 +66,7 @@ void TileMap::render(void)
 		if (_viTileMap->onTile) 
 		{
 			_viTileMap->img->render(getMemDC(), _viTileMap->img->getX(), _viTileMap->img->getY() );
-			cout << "그림  rc.top / getY() " << _viTileMap->rc.top  << "," << _viTileMap->img->getY() << endl;
+			//cout << "그림  rc.top / getY() " << _viTileMap->rc.top  << "," << _viTileMap->img->getY() << endl;
 		}
 
 		rcMake(getMemDC(), _viTileMap->rc);

@@ -3,10 +3,10 @@
 
 HRESULT FirstScene::init(void)
 {
-	IMAGEMANAGER->addImage("시작화면", "Resources/Images/BackGround/StartBG.bmp", WINSIZE_X, WINSIZE_Y);
+    IMAGEMANAGER->addImage("시작화면", "Resources/Images/BackGround/boss1floor.bmp", 1329, 400);//,true,RGB(255,0,255));
 	_player = new Player;
 	_player->init();
-	_player->setPlayerPos(630);
+	_player->setPlayerPosX(800);
 	_count = 0;
 
 	return S_OK;
@@ -21,19 +21,21 @@ void FirstScene::update(void)
 {
 	_player->update();
 
-	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON) || _player->getPlayerPos() > 1850)
+	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON) || _player->getPlayerPosX() > 1570)
 	{
-		SCENEMANAGER->changeScene("마을");
+		//SCENEMANAGER->changeScene("마을");
+        _player->setPlayerPosX(1570);
 	}
 
-	if (_player->getPlayerPos() < 800)
+	if (_player->getPlayerPosX() < 700)
 	{
-		_player->setPlayerPos(800);
+		_player->setPlayerPosX(700);
 	}
 }
 
 void FirstScene::render(void)
 {
-	IMAGEMANAGER->render("시작화면", getMemDC());
+	IMAGEMANAGER->render("시작화면", getMemDC(),0,0,
+                  _player->getPlayerPosX()-800, 0, WINSIZE_X, WINSIZE_Y);
 	_player->render();
 }

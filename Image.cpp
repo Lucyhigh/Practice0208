@@ -419,8 +419,6 @@ void Image::render(HDC hdc, int destX, int destY, int sourX, int sourY, int sour
 		BitBlt(hdc, destX, destY, sourWidth, sourHeight,
 			_imageInfo->hMemDC, sourX, sourY, SRCCOPY);
 	}
-
-
 }
 
 // 알파렌더(배경)

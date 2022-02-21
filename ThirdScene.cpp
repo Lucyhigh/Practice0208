@@ -8,7 +8,7 @@ HRESULT ThirdScene::init(void)
 	IMAGEMANAGER->addImage("사망배경", "Resources/Images/BackGround/DeadBG.bmp", WINSIZE_X, WINSIZE_Y);
 	_player = new Player;
 	_player->init();
-	_player->setPlayerPos(630);
+	_player->setPlayerPosX(630);
 	
 	_player->setThird(true);
 	_bgAlpha = 0;
@@ -33,19 +33,19 @@ void ThirdScene::update(void)
 	{
 		SCENEMANAGER->changeScene("타이틀");
 	}
-	if (_player->getPlayerPos() > 1850)
+	if (_player->getPlayerPosX() > 1850)
 	{
-		_player->setPlayerPos(1850);
+		_player->setPlayerPosX(1850);
 	}
-	else if (_player->getPlayerPos() < 800)
+	else if (_player->getPlayerPosX() < 800)
 	{
-		_player->setPlayerPos(800);
+		_player->setPlayerPosX(800);
 	}
 }
 
 void ThirdScene::render(void)
 {
-	cout << _bgAlpha << endl;
+	//cout << _bgAlpha << endl;
 	IMAGEMANAGER->render("데미지화면", getMemDC());
 	_player->render();
 	if (_player->getLive()==false)

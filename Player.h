@@ -2,6 +2,8 @@
 #include "GameNode.h"
 #include "ProgressBar.h"
 #include "Inventory.h"
+#include "Camera.h"
+
 class Player : public GameNode
 {
 private:
@@ -9,8 +11,11 @@ private:
 	ProgressBar* _hpBar;
 	RECT _rcPlayer;
     Inventory* _inventory;
+    Camera* _camera;
+    POINT _playerPos;
 
 	float _x, _y;
+    int _speed;
 	int _count;
 	int _indexA;
 	int _indexB;
@@ -29,8 +34,9 @@ public:
 	void update(void);
 	void render(void);
 
-	float getPlayerPos();
-	void setPlayerPos(float x);
+    POINT setPlayerPosXY();
+	float getPlayerPosX();
+	void setPlayerPosX(float x);
 	RECT getPlayerRect();
 
 
