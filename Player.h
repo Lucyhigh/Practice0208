@@ -11,10 +11,11 @@ private:
 	ProgressBar* _hpBar;
 	RECT _rcPlayer;
     Inventory* _inventory;
-    
+
     POINT _playerPos;
 
-	float _x, _y;
+    RECT _cameraRect;
+
     int _speed;
 	int _count;
 	int _indexA;
@@ -39,6 +40,8 @@ public:
 
     void setPlayerPosY(float y);
 	RECT getPlayerRect();
+
+    void setCameraRect(RECT rect);
 
 
 	bool getLeft();

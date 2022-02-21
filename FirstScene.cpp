@@ -3,7 +3,7 @@
 
 HRESULT FirstScene::init(void)
 {
-    IMAGEMANAGER->addImage("시작화면", "Resources/Images/BackGround/boss1floor.bmp", 2460, 800,true,RGB(255,0,255));
+    _image = IMAGEMANAGER->addImage("시작화면", "Resources/Images/BackGround/boss1floor.bmp", 2460, 800,false,RGB(255,0,255));
 	_player = new Player;
 	_player->init();
 	_player->setPlayerPosX(800);
@@ -12,6 +12,7 @@ HRESULT FirstScene::init(void)
 
     _camera = new Camera;
     _camera->init();
+    _camera->setLimits(CENTER_X, _image->getWidth() - CENTER_X);
 
 	return S_OK;
 }
@@ -27,28 +28,31 @@ void FirstScene::update(void)
 {
 	_player->update();
 
-	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON) || _player->getPlayerPosX() > 2050)
-	{
-		//SCENEMANAGER->changeScene("마을");
-        _player->setPlayerPosX(2050);
-	}
+	//if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON) || _player->getPlayerPosX() > 2050)
+	//{
+	//	//SCENEMANAGER->changeScene("마을");
+ //       _player->setPlayerPosX(2050);
+	//}
 
-	if (_player->getPlayerPosX() < 450)
-	{
-		_player->setPlayerPosX(450);
-	}
+	//if (_player->getPlayerPosX() < 450)
+	//{
+	//	_player->setPlayerPosX(450);
+	//}
 
-    POINT p;
-    p.x = _player->getPlayerPosX();
-    p.y = _camera->getCameraPos().y;
-    _camera->setCameraPos(p);
+    POINT cameraPos;
+    cameraPos.x = _player->getPlayerPosX();
+    cameraPos.y = _camera->getCameraPos().y;
+    _camera->setCameraPos(cameraPos);
     _camera->update();//나중에 양끝 조건식주기
+    _player->setCameraRect(_camera->getScreenRect());
 }
 
 void FirstScene::render(void)
 {
 	IMAGEMANAGER->render("시작화면", getMemDC(),0,0,
-                  _camera->getScreenRect().left, _camera->getScreenRect().top, _camera->getScreenRect().right, _camera->getScreenRect().bottom);
+                    _camera->getScreenRect().left, _camera->getScreenRect().top, 
+                    _camera->getScreenRect().right, _camera->getScreenRect().bottom);
+                    //WINSIZE_X, WINSIZE_Y);
 	_player->render();
     _camera->render();
 

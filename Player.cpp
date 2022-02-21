@@ -6,18 +6,15 @@ HRESULT Player::init(void)
 	_image = IMAGEMANAGER->addFrameImage("캐릭터대기", "Resources/Images/Object/playerIdle.bmp", 1664, 146, 13, 2, true, RGB(255, 0, 255));
 	_image = IMAGEMANAGER->addFrameImage("캐릭터이동", "Resources/Images/Object/playerRun.bmp", 1106, 140, 14, 2, true, RGB(255, 0, 255));
 	
-	_x = 0;
-	_y = WINSIZE_Y-35;
 	//_rcPlayer = RectMakeCenter(_x, _y, _image->getWidth(), _image->getHeight());
-	_rcPlayer = RectMakeCenter(_x, _y, _image->getFrameWidth(), _image->getFrameHeight());
 	
 	_count = 0;
 	_indexA = _indexB = 0;
 	_alphaA = 0;
     _speed = 5;
     _playerPos.x = 0;
-   // _playerPos.y = WINSIZE_Y-170;
-    _playerPos.y =0 ;
+    _playerPos.y = WINSIZE_Y-140;
+	_rcPlayer = RectMakeCenter(_playerPos.x, _playerPos.y, _image->getFrameWidth(), _image->getFrameHeight());
     
     //_camera->setCameraPos(_playerPos);
 
@@ -71,16 +68,15 @@ void Player::update(void)
 		{
 			_isLeft = true;
 			_isWaiting = false;
-			_x -= _speed;
           
-            if (_playerPos.x < 0)
+            /*if (_playerPos.x < 0)
             {
                 _playerPos.x = 0;
             }
             else
             {
-                _playerPos.x -= _speed;
-            }
+            }*/
+            _playerPos.x -= _speed;
 			_hpBar->setX(_hpBar->getX() - _speed);
 			_indexB++;
 			IMAGEMANAGER->findImage("캐릭터이동")->setFrameY(1);
@@ -94,15 +90,14 @@ void Player::update(void)
 		{
 			_isLeft = false;
 			_isWaiting = false;
-			_x += _speed;
-            if (_playerPos.x >= WINSIZE_X)
+            /*if (_playerPos.x >= WINSIZE_X)
             {
                 _playerPos.x = WINSIZE_X;
             }
             else
             {
-                _playerPos.x += _speed;
-            }
+            }*/
+            _playerPos.x += _speed;
 			_hpBar->setX(_hpBar->getX() + _speed);
 			_indexB--;
 			IMAGEMANAGER->findImage("캐릭터이동")->setFrameY(0);
@@ -123,7 +118,7 @@ void Player::update(void)
 		{
 			hitDamage(0.5f);
 		}
-		_rcPlayer = RectMakeCenter(_x, _y, _image->getFrameWidth(), _image->getFrameHeight());
+		_rcPlayer = RectMakeCenter(_playerPos.x, _playerPos.y, _image->getFrameWidth(), _image->getFrameHeight());
 	}
 }
 
@@ -135,31 +130,31 @@ void Player::render(void)
 	}
 	if (_isLive)
 	{
+        float left = _rcPlayer.left - _cameraRect.left;
+        float top = _rcPlayer.top - _cameraRect.top;
 		if (_isWaiting)
 		{
-			IMAGEMANAGER->frameRender("캐릭터대기", getMemDC(), _rcPlayer.left,
-                                                               _rcPlayer.top);
+			IMAGEMANAGER->frameRender("캐릭터대기", getMemDC(), left, top);
 		}
 		else
 		{
-			IMAGEMANAGER->frameRender("캐릭터이동", getMemDC(), _rcPlayer.left,
-                                                               _rcPlayer.top);
+			IMAGEMANAGER->frameRender("캐릭터이동", getMemDC(), left, top);
 		}
 	}
 }
 
 float Player::getPlayerPosX()
 {
-	return _x;
+	return _playerPos.x;
 }
 
 void Player::setPlayerPosX(float x)
 {
-	_x = x;
+    _playerPos.x = x;
 }
 void Player::setPlayerPosY(float y)
 {
-	_y = y;
+    _playerPos.y = y;
 }
 
 RECT Player::getPlayerRect()
@@ -206,4 +201,9 @@ void Player::hitDamage(float damage)
 		return;
 	}
 	_currentHp -= damage;
+}
+
+void Player::setCameraRect(RECT rect)
+{
+    _cameraRect = rect;
 }
