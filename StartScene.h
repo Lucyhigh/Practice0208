@@ -1,4 +1,4 @@
-#pragma once
+ #pragma once
 #include "GameNode.h"
 
 class StartScene : public GameNode

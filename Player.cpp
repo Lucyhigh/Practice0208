@@ -9,6 +9,7 @@ HRESULT Player::init(void)
 	_x = CENTER_X;
 	_y = WINSIZE_Y-35;
 	_rcPlayer = RectMakeCenter(_x, _y, _image->getWidth(), _image->getHeight());
+	//_rcPlayer = RectMakeCenter(_x, _y, _image->getFrameWidth(), _image->getFrameHeight());
 	
 	_count = 0;
 	_indexA = _indexB = 0;
@@ -118,6 +119,9 @@ void Player::update(void)
 		else
 		{
 			_isWaiting = true;
+            //if(isLeft)왼쪽길이와 비교해 중간값에 빼서 나온 수 만큼 타이밍 값 줘서 스르륵 이동시키기
+            //else 오른쪽도 같이
+           // if(getDistance(_camera->getScreenRect().right- _camera->getScreenRect().left)*0.5,0,))
 		}
 		if (_isThird && _count % 20 == 0)
 		{
