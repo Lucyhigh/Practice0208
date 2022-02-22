@@ -6,7 +6,7 @@ Camera::Camera()
    _trace.x = 100;
    _trace.y = 400;
    _count = 0;
-   //_screen = RectMakeCenter(_trace.x, _trace.y, _trace.x+SCREEN_SIZE, _trace.y + SCREEN_SIZE);
+  
    _screen = RectMake(_trace.x, _trace.y, WINSIZE_X, WINSIZE_Y);
    _leftLimit = CENTER_X;
 }

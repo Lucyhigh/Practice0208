@@ -8,6 +8,7 @@ class FirstScene : public GameNode
 private:
 	Image* _image;
 	Player* _player;
+	RECT _npcRc;
     Camera* _camera;
 	float _x, _y;
 	int _count;

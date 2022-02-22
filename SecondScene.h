@@ -7,7 +7,7 @@ class SecondScene : public GameNode
 private:
 	Image* _image;
 	Player* _player;
-	RECT _npcRc;
+
 	float _x, _y;
 	int _count;
 	int _indexA;
