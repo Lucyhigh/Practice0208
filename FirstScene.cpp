@@ -3,7 +3,11 @@
 
 HRESULT FirstScene::init(void)
 {
-	_image = IMAGEMANAGER->addImage("시작화면", "Resources/Images/BackGround/boss1floor.bmp", 2460, 800);//, false, RGB(255, 0, 255));
+	_image = IMAGEMANAGER->addImage("시작화면", "Resources/Images/BackGround/boss1floor.bmp", 2460, 800);// , true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("기도", "Resources/Images/Object/object.bmp", 272, 304,2,1,true,RGB(255,0,255));
+	IMAGEMANAGER->addImage("기도E", "Resources/Images/Object/objectE.bmp", 392, 411,2,1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("버튼", "Resources/Images/Object/buttomE.bmp", 35, 38, true, RGB(255, 0, 255));
+
 	IMAGEMANAGER->addImage("선택창1", "Resources/Images/Object/SelectBox1.bmp", 392, 411);
 	IMAGEMANAGER->addImage("선택창2", "Resources/Images/Object/SelectBox2.bmp", 392, 411);
 	_player = new Player;
@@ -11,15 +15,15 @@ HRESULT FirstScene::init(void)
 	_player->setPlayerPosX(0);
 	_player->setPlayerPosY(WINSIZE_Y-100);
 	_count = 0;
-
-	_image = IMAGEMANAGER->addFrameImage("고양이", "Resources/Images/Object/NPC.bmp", 884, 442, 4, 2, true, RGB(255, 0, 255));
-	_x = WINSIZE_X - 50;
-	_y = CENTER_Y + 250;
-	_npcRc = RectMakeCenter(_x, _y, _image->getWidth(), _image->getHeight());
+	_indexA = 0;
+	_npcImage = IMAGEMANAGER->addFrameImage("고양이", "Resources/Images/Object/NPC.bmp", 884, 442, 4, 2, true, RGB(255, 0, 255));
+	_x = 900;
+	_y = 950;
+	_npcRc = RectMakeCenter(_x, _y, _npcImage->getFrameWidth(), _npcImage->getFrameHeight());
 
     _camera = new Camera;
     _camera->init();
-    _camera->setLimits(CENTER_X, _image->getWidth() - CENTER_X); //좌우 벽맞기
+    _camera->setLimits(CENTER_X, _image->getWidth()); //좌우 벽맞기
 
 	return S_OK;
 }
@@ -33,8 +37,9 @@ void FirstScene::release(void)
 
 void FirstScene::update(void)
 {
+	_count++;
 	_player->update();
-	if (_npcRc.left - 100 < _player->getPlayerRect().left&& _player->getPlayerRect().left < _npcRc.left + 100)
+	if (_npcRc.left - 100 < _player->getPlayerRect().left && _player->getPlayerRect().left < _npcRc.left + 100)
 	{
 		if (KEYMANAGER->isToggleKey('S'))
 		{
@@ -42,14 +47,14 @@ void FirstScene::update(void)
 			{
 				if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 				{
-					SCENEMANAGER->changeScene("상점");
+					
 				}
 			}
 			else if (_ptMouse.x > CENTER_X - 300 && _ptMouse.y < CENTER_Y)
 			{
 				if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 				{
-					SCENEMANAGER->changeScene("인벤토리");
+					
 				}
 			}
 		}
@@ -89,10 +94,10 @@ void FirstScene::render(void)
                     _camera->getScreenRect().left, _camera->getScreenRect().top, 
                     _camera->getScreenRect().right, _camera->getScreenRect().bottom);
                     //WINSIZE_X, WINSIZE_Y);
-	IMAGEMANAGER->frameRender("고양이", getMemDC(), _npcRc.left, _npcRc.top);
-	if (_npcRc.left - 100 < _player->getPlayerRect().left && _player->getPlayerRect().left < _npcRc.left + 100)
+    _camera->render();
+	if (getDistance(_npcRc.left,0, _player->getPlayerPosX(),0)>100)
 	{
-		if (KEYMANAGER->isToggleKey('S'))
+		//if (KEYMANAGER->isToggleKey('S'))
 		{
 			if (_ptMouse.x > CENTER_X - 300 && _ptMouse.y > CENTER_Y)
 			{
@@ -104,9 +109,9 @@ void FirstScene::render(void)
 			}
 		}
 	}
+	IMAGEMANAGER->frameRender("고양이", getMemDC(), _npcRc.left- _camera->getCameraPos().x, _npcRc.top- _camera->getCameraPos().y);
 	_player->render();
-    _camera->render();
     cout << _player->getPlayerPosX()<<", 카메라x"<< _camera->getCameraPos().x<< ", 카메라 y"<< _camera->getCameraPos().y<<
         ", 넴모왼" << _camera->getScreenRect().left << ", 넴모탑 " << _camera->getScreenRect().top <<
-        ", 넴모우" << _camera->getScreenRect().right << ", 넴모바텀 " << _camera->getScreenRect().bottom << endl;
+        ", 길이" << getDistance(_npcRc.left, 0, _player->getPlayerPosX(), 0) << ", 냥왼 " << _npcRc.left << endl;
 }

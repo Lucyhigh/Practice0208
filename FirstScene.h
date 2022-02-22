@@ -7,6 +7,7 @@ class FirstScene : public GameNode
 {
 private:
 	Image* _image;
+	Image* _npcImage;
 	Player* _player;
 	RECT _npcRc;
     Camera* _camera;
