@@ -1,7 +1,6 @@
 #include "Stdafx.h"
 #include "TextDataManager.h"
 
-
 HRESULT TextDataManager::init(void){
     return S_OK;
 }
@@ -18,7 +17,7 @@ void TextDataManager::save(const char * fileName, vector<string> vStr)
     DWORD write;
     /*
     strcpy:문자열 복사함수
-         //이 아래는 위에서 기능이 확장됨 복사의 크기를 못정해서 나온것들
+          //이 아래는 위에서 기능이 확장됨 복사의 크기를 못정해서 나온것들
     strnpy_s:
     strnpy_s:
     strncpy_s:복사할 크기를 인자로 잡아줄수있다(길이값들어감)-끝에 자동으로 NULL 문자 삽입
@@ -90,7 +89,6 @@ vector<string> TextDataManager::load(const char * fileName)
 
 vector<string> TextDataManager::charArraySeparation(char charArray[])
 {
-
     vector<string> vArray;
     char* temp;
     char* separator = ",";
