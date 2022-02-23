@@ -98,9 +98,10 @@ void FirstScene::render(void)
 
 	int npcPosX = _npcRc.left - _camera->getScreenRect().left;
 	int npcPosY = _npcRc.top - _camera->getScreenRect().top;
+	int npcPosCenterX = (_npcRc.left+ _npcRc.right)/2 - _camera->getScreenRect().left;
 
 	IMAGEMANAGER->frameRender("고양이", getMemDC(), npcPosX, npcPosY);
-	if (getDistance(npcPosX,0, _player->getPlayerPosX(),0) < 100)
+	if (getDistance(npcPosX, npcPosY, _player->getPlayerPosX(),0) < 100)
 	{
 		if (KEYMANAGER->isToggleKey('E'))
 		{
@@ -116,11 +117,11 @@ void FirstScene::render(void)
 		else
 		{
 		}
-			IMAGEMANAGER->render("버튼", getMemDC(), npcPosX , npcPosY -50);
 	}
-//	Rectangle(getMemDC(),_npcRc.left, _npcRc.top, _npcRc.right, _npcRc.bottom);
+			IMAGEMANAGER->render("버튼", getMemDC(), npcPosCenterX, npcPosY -40);
+	Rectangle(getMemDC(),_npcRc.left, _npcRc.top, _npcRc.right, _npcRc.bottom);
 	_player->render();
     cout << npcPosX <<", 카메라x"<< _camera->getCameraPos().x<< ", 카메라 y"<< _camera->getCameraPos().y<<
         ", 넴모왼" << _camera->getScreenRect().left << ", 넴모탑 " << _camera->getScreenRect().top <<
-        ", 길이" << getDistance(_npcRc.left, 0, _player->getPlayerPosX(), 0) << ", 냥왼 " << _npcRc.left << endl;
+        ", 길이" << (getDistance(npcPosX, npcPosY, _player->getPlayerPosX(), 0)) << ", 냥왼 " << _npcRc.left << endl;
 }
