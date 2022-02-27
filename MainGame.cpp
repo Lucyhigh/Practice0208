@@ -6,6 +6,7 @@
 #include "ThirdScene.h"
 #include "Inventory.h"
 #include "Store.h"
+#include "PixelScene.h"
 
 HRESULT MainGame::init(void) //초기화
 {
@@ -18,6 +19,7 @@ HRESULT MainGame::init(void) //초기화
 
 	SCENEMANAGER->addScene("인벤토리", new Inventory);
 	SCENEMANAGER->addScene("상점", new Store);
+	SCENEMANAGER->addScene("픽셀", new PixelScene);
 
 	SCENEMANAGER->changeScene("시작");
 

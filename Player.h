@@ -2,7 +2,7 @@
 #include "GameNode.h"
 #include "ProgressBar.h"
 #include "Inventory.h"
-#include "Camera.h"
+//#include "Camera.h"
 
 class Player : public GameNode
 {

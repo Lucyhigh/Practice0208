@@ -3,11 +3,11 @@
 
 Camera::Camera()
 {
-   _trace.x = 100;
-   _trace.y = 400;
+   _trace.x = CENTER_X;
+   _trace.y = CENTER_Y;
    _count = 0;
   
-   _screen = RectMake(_trace.x, _trace.y, WINSIZE_X, WINSIZE_Y);
+   _screen = RectMakeCenter(_trace.x, _trace.y, WINSIZE_X, WINSIZE_Y);
    _leftLimit = CENTER_X;
 }
 
@@ -26,7 +26,8 @@ void Camera::update(void)
 
 void Camera::render(void)
 {
-    //Rectangle(getMemDC(),_screen.left,_screen.top,_screen.right,_screen.bottom);
+	cout << _trace.x << ", "<<_screen.left<< endl;
+   // Rectangle(getMemDC(),_screen.left,_screen.top,_screen.right,_screen.bottom);
 }
 
 RECT Camera::getScreenRect()

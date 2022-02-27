@@ -3,7 +3,7 @@
 
 HRESULT PixelScene::init(void)
 {
-	IMAGEMANAGER->addImage("ฟ๏ลüบาลü", "Resources/Images/BackGround/StartBG.bmp",
+	IMAGEMANAGER->addImage("ฟ๏ลüบาลü", "Resources/Images/BackGround/Collider.bmp",
 		WINSIZE_X, WINSIZE_Y, true, RGB(255, 0, 255));
 
 	_pixel = new PixelCollision;
