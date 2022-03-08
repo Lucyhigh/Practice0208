@@ -119,6 +119,8 @@
       <Filter>Store</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="SoundScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameNode.h">
@@ -242,6 +244,8 @@
       <Filter>Store</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="SoundScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="API">

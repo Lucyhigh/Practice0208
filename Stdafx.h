@@ -14,9 +14,15 @@
 //!라이브러리
 #pragma comment(linker,"/entry:WinMainCRTStartup /subsystem:console")
 #pragma comment(lib,"Winmm.lib")
+//#pragma comment(lib,"lib/FMOD/fmodex_vc.lib")
+#pragma comment (lib, "lib/FMOD/fmodex64_vc")
+//!외부 헤더 파일
+#include "inc/FMOD/fmod.hpp"
 // 알파 블렌드를 사용하기 위한 라이브러리 추가 
 #pragma comment (lib,"msimg32.lib")
-
+//#pragma comment (lib, "lib/FMOD/fmodex_vc.lib")
+//
+//#include "inc/FMOD/fmod.hpp"
 //! C 런타임 헤더 파일
 #include <stdlib.h>
 #include <stdio.h>
@@ -57,6 +63,7 @@ using namespace std;
 #include "TimeManager.h"
 #include "TextDataManager.h"
 #include "SceneManager.h"
+#include "SoundManager.h"
 //#include "Player.h"
 
 using namespace MY_UTIL;
@@ -72,6 +79,7 @@ using namespace MY_UTIL;
 #define TIMEMANAGER TimeManager::getSingleton()
 #define TEXTDATAMANAGER TextDataManager::getSingleton()
 #define SCENEMANAGER SceneManager::getSingleton()
+#define SOUNDMANAGER SoundManager::getSingleton()
 //#define PLAYER Player::getSingleton()
 
 //============================
@@ -96,6 +104,7 @@ using namespace MY_UTIL;
 #define WINSIZE_X	 1200
 #define WINSIZE_Y	 800
 #define WINSTYLE	 WS_CAPTION | WS_SYSMENU
+//=========================이걸 바꿔주면 변화생김 엠피플레이어처럼
 #endif 
 
 

@@ -127,6 +127,110 @@ void Animation::setPlayFrame(int start, int end, bool reverse, bool loop)
             _playList.push_back(i);
         }
     }
+	/*
+	차노짱
+	if (start == end)
+   {
+	  _playList.clear();
+	  AniStop();
+	  return;
+   }
+
+   if (start > end)
+   {
+	  if (reverse)
+	  {
+		 if (_loop)
+		 {
+			for (int i = start; i >= end; --i)
+			{
+			   _playList.push_back(i);
+			}
+
+			for (int i = end + 1; i < start; ++i)
+			{
+			   _playList.push_back(i);
+			}
+		 }
+		 else
+		 {
+			for (int i = start; i >= end; --i)
+			{
+			   _playList.push_back(i);
+			}
+
+			for (int i = end + 1; i < start; ++i)
+			{
+			   _playList.push_back(i);
+			}
+		 }
+	  }
+	  else
+	  {
+		 if (_loop)
+		 {
+			for (int i = start; i >= end; --i)
+			{
+			   _playList.push_back(i);
+			}
+		 }
+		 else
+		 {
+			for (int i = start; i >= end; --i)
+			{
+			   _playList.push_back(i);
+			}
+		 }
+	  }
+   }
+   else
+   {
+	  if (reverse)
+	  {
+		 if (_loop)
+		 {
+			for (int i = start; i < end; ++i)
+			{
+			   _playList.push_back(i);
+			}
+
+			for (int i = end - 1; i > start; --i)
+			{
+			   _playList.push_back(i);
+			}
+		 }
+		 else
+		 {
+			for (int i = start; i < end; ++i)
+			{
+			   _playList.push_back(i);
+			}
+
+			for (int i = end - 1; i > start; --i)
+			{
+			   _playList.push_back(i);
+			}
+		 }
+	  }
+	  else
+	  {
+		 if (_loop)
+		 {
+			for (int i = start; i < end; ++i)
+			{
+			   _playList.push_back(i);
+			}
+		 }
+		 else
+		 {
+			for (int i = start; i < end; ++i)
+			{
+			   _playList.push_back(i);
+			}
+		 }
+	  }
+   }
+	*/
 }
 //초당 프레임 갱신 횟수
 void Animation::setFPS(int framePerSec)
