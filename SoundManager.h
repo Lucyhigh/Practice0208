@@ -1,6 +1,8 @@
 #pragma once
 #include "SingletonBase.h"
 
+#define SOUND_DEFAULT 0.5f
+#define SOUND_WEIGHT 0.1f
 using namespace FMOD;
 /*
 컴파일러 단계
@@ -72,7 +74,7 @@ private:
 	//파일패스롤 잡아야함
 	System* _system;
 	Sound** _sound; //Resource 자원(음원)
-	Channel** _channel;//재상 사운드 채널
+	Channel** _channel;//재생 사운드 채널
 
 	arrSounds _mTotalSounds;
     bool isPlay;
@@ -91,6 +93,32 @@ public:
 
 	bool isPlaySound(string keyName);
 	bool isPauseSound(string keyName);
+
+    //전체시간 가져오기
+    float getSoundLen(string keyName);
+    //볼륨조절
+ /*   int volumeUp(float volume)
+     {
+        if (volume < SOUND_MAX) 
+        {
+            volume += SOUND_WEIGHT;
+        }
+
+        FMOD_Channel_SetVolume(_channel, volume);
+
+        return 0;
+    }
+    int volumeDown(float volume)
+        {
+        if (volume > SOUND_MIN) 
+        {
+            volume -= SOUND_WEIGHT;
+        }
+
+        FMOD_Channel_SetVolume(_channel, volume);
+
+        return 0;
+        }*/
 public:
 	SoundManager();
 	~SoundManager(){}

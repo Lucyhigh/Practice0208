@@ -2,7 +2,7 @@
 
 struct tagTextWithSound
 {
-    LPCWSTR name;
-    string soundVec;
-    LPCWSTR script;
+    int index;
+    string sound_Name;
+    string sound_image;
 };

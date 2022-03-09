@@ -23,6 +23,7 @@ HRESULT SoundManager::init(void)
 	//메모리 한번 밀자
 	memset(_sound, 0, sizeof(Sound*) * (totalSoundChannel));
 	memset(_channel, 0, sizeof(Channel*) * (totalSoundChannel));
+
 	/*
 	//사운드 시스템 생성
 	System_Create(&_system);
@@ -57,7 +58,6 @@ void SoundManager::release(void)
 			{   
                 //리소스 해제
 				if(_sound != nullptr)_sound[i]->release();
-
 			}
 		}
 	}
@@ -70,7 +70,7 @@ void SoundManager::release(void)
 		_system->close();
 	}
     //Map 비우기
-    //sounds.clear();
+    //_sound.clear();
 	/*
 	//destroy
 	if (_channel != nullptr || _sound != nullptr)
@@ -124,6 +124,7 @@ void SoundManager::addSound(string keyName, string soundName, bool backGround,bo
 	}
 	//맵에 넣기 (_sound[keyName] = &_sound[_mTotalSounds.size()];)
 	_mTotalSounds.insert(make_pair(keyName, &_sound[_mTotalSounds.size()]));
+   // cout << _mTotalSounds.begin()->first << endl;
 }
 
 void SoundManager::update(void)
@@ -152,17 +153,19 @@ void SoundManager::play(string keyName, float volume)
 		if (keyName == iter->first)
 		{
 			//사운드 플레이
-            //auto next == iter->second;
 			_system->playSound(FMOD_CHANNEL_FREE,   //비어있는 채널 사용
-                *iter->second,
-                false,                              //안멈춤
-                &_channel[count]);
+                                *iter->second,
+                                false,              //안멈춤
+                                &_channel[count]);
 
 			//볼륨 설정
 			_channel[count]->setVolume(volume);
-			break;
+            //cout << keyName <<" , "<< count << endl;
+            cout << iter->first << " " << *iter->second << endl;
+            break;
 		}
 	}
+
 }
 
 void SoundManager::stop(string keyName)
@@ -204,7 +207,7 @@ void SoundManager::resume(string keyName)
 bool SoundManager::isPlaySound(string keyName)
 {
     //모든 채널 검사해서 하나라도 플레이 중이면 true반환
-	//bool isPlay;
+	bool isPlay;
 	int count = 0;
 	arrSoundsIter iter = _mTotalSounds.begin();
 	for (iter; iter != _mTotalSounds.end(); ++iter, count++)
@@ -232,6 +235,19 @@ bool SoundManager::isPauseSound(string keyName)
 	}
 	return isPause;
 }
+//
+//float SoundManager::getSoundLen(string keyName)
+//{
+//    int count = 0;
+//    arrSoundsIter iter = _mTotalSounds.begin();
+//    for (iter; iter != _mTotalSounds.end(); ++iter, count++)
+//    {
+//        if (keyName == iter->first)
+//            iter->getName(&isPause);
+//        break;
+//    }
+//    return 0.0f;
+//}
 
 
 /*
