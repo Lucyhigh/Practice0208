@@ -2,6 +2,8 @@
 #include "GameNode.h"
 class SoundScene:public GameNode
 {
+private:
+    float _volume;
 public:
 	HRESULT init(void);
 	void release(void);

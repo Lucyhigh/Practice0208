@@ -3,7 +3,8 @@
 
 SoundManager::SoundManager():_system(nullptr),
 							_channel(nullptr),
-							_sound(nullptr)
+							_sound(nullptr),
+    isPlay(false)
 {
 }
 
@@ -43,7 +44,7 @@ HRESULT SoundManager::init(void)
 
 void SoundManager::release(void)
 {
-	//destroy
+	//destroy - 소리는 중지를 시킨다음 지워야한다
 	if (_channel != nullptr || _sound != nullptr)
 	{
 		for (int i = 0; i < totalSoundChannel; i++)
@@ -53,7 +54,8 @@ void SoundManager::release(void)
 				if(_channel[i])_channel[i]->stop();
 			}
 			if (_sound != nullptr)
-			{
+			{   
+                //리소스 해제
 				if(_sound != nullptr)_sound[i]->release();
 
 			}
@@ -61,12 +63,14 @@ void SoundManager::release(void)
 	}
 	SAFE_DELETE_ARRAY(_channel);
 	SAFE_DELETE_ARRAY(_sound);
-
+    //시스템 닫기
 	if (_system != nullptr)
 	{
 		_system->release();
 		_system->close();
 	}
+    //Map 비우기
+    //sounds.clear();
 	/*
 	//destroy
 	if (_channel != nullptr || _sound != nullptr)
@@ -96,12 +100,6 @@ void SoundManager::release(void)
 	*/
 }
 
-void SoundManager::update(void)
-{
-	//사운드 시스템 업데이트
-	//ㄴ 볼륨이 바뀌거나 재생이 끝난 사운드를 채널에서 빼는 등 다양한 작업을 자동으로 한다.
-	_system->update();
-}
 
 void SoundManager::addSound(string keyName, string soundName, bool backGround,bool loop)
 {
@@ -124,10 +122,16 @@ void SoundManager::addSound(string keyName, string soundName, bool backGround,bo
 		//FMOD_DEFAULT : 한번 플레이
 		_system->createSound(soundName.c_str(), FMOD_DEFAULT, 0, &_sound[_mTotalSounds.size()]);
 	}
-	
+	//맵에 넣기 (_sound[keyName] = &_sound[_mTotalSounds.size()];)
 	_mTotalSounds.insert(make_pair(keyName, &_sound[_mTotalSounds.size()]));
 }
 
+void SoundManager::update(void)
+{
+	//사운드 시스템 업데이트
+	//ㄴ 볼륨이 바뀌거나 재생이 끝난 사운드를 채널에서 빼는 등 다양한 작업을 자동으로 한다.
+	_system->update();
+}
 void SoundManager::play(string keyName, float volume)
 {
 	arrSoundsIter iter = _mTotalSounds.begin();
@@ -148,7 +152,11 @@ void SoundManager::play(string keyName, float volume)
 		if (keyName == iter->first)
 		{
 			//사운드 플레이
-			_system->playSound(FMOD_CHANNEL_FREE, _sound[count], false, &_channel[count]);
+            //auto next == iter->second;
+			_system->playSound(FMOD_CHANNEL_FREE,   //비어있는 채널 사용
+                *iter->second,
+                false,                              //안멈춤
+                &_channel[count]);
 
 			//볼륨 설정
 			_channel[count]->setVolume(volume);
@@ -195,16 +203,20 @@ void SoundManager::resume(string keyName)
 
 bool SoundManager::isPlaySound(string keyName)
 {
-	bool isPlay;
+    //모든 채널 검사해서 하나라도 플레이 중이면 true반환
+	//bool isPlay;
 	int count = 0;
 	arrSoundsIter iter = _mTotalSounds.begin();
 	for (iter; iter != _mTotalSounds.end(); ++iter, count++)
 	{
+        //keyName과 일치하는 음원이 있다면
 		if (keyName == iter->first)
+            //재생중이라면 isPlay를 true로 설정
 			_channel[count]->isPlaying(&isPlay);
 		break;
 	}
 	return isPlay;
+    cout << isPlay << endl;
 }
 
 bool SoundManager::isPauseSound(string keyName)

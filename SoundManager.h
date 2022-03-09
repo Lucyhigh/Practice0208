@@ -65,17 +65,17 @@ constexpr auto totalSoundChannel = soundBuffer + extraSoundChannel;
 class SoundManager:public SingletonBase<SoundManager>
 {
 private:
-	typedef map<string, Sound**> arrSounds;
+	typedef map<string, Sound**> arrSounds; //음원개수 string 음원 이름 , Sound 음원
 	typedef map<string, Sound**>::iterator  arrSoundsIter;
 	typedef map<string, Channel**> arrChannels;
 	typedef map<string, Channel**>::iterator  arrChannelsIter;
 	//파일패스롤 잡아야함
 	System* _system;
-	Sound** _sound;
-	Channel** _channel;
+	Sound** _sound; //Resource 자원(음원)
+	Channel** _channel;//재상 사운드 채널
 
 	arrSounds _mTotalSounds;
-
+    bool isPlay;
 public:
 	HRESULT init(void);
 	void release(void);
@@ -95,6 +95,7 @@ public:
 	SoundManager();
 	~SoundManager(){}
 };
+
 //c스타일
 //enum SOUNDKIND
 //{

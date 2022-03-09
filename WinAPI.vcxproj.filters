@@ -125,6 +125,7 @@
     <ClCompile Include="SoundScene.cpp">
       <Filter>API\ExamClass</Filter>
     </ClCompile>
+    <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameNode.h">
@@ -254,6 +255,7 @@
     <ClInclude Include="SoundScene.h">
       <Filter>API\ExamClass</Filter>
     </ClInclude>
+    <ClInclude Include="Text.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="API">
