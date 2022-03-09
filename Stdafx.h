@@ -14,8 +14,8 @@
 //!라이브러리
 #pragma comment(linker,"/entry:WinMainCRTStartup /subsystem:console")
 #pragma comment(lib,"Winmm.lib")
-//#pragma comment(lib,"lib/FMOD/fmodex_vc.lib")
-#pragma comment (lib, "lib/FMOD/fmodex64_vc")
+#pragma comment(lib,"lib/FMOD/fmodex_vc.lib")
+//#pragma comment (lib, "lib/FMOD/fmodex64_vc.")
 //!외부 헤더 파일
 #include "inc/FMOD/fmod.hpp"
 // 알파 블렌드를 사용하기 위한 라이브러리 추가 
@@ -99,11 +99,11 @@ using namespace MY_UTIL;
 #define WINSTYLE	 WS_POPUPWINDOW | WS_MAXWIZE
 //1200*800
 #else
-#define WINSTART_X	 400
-#define WINSTART_Y	 0
-#define WINSIZE_X	 1200
-#define WINSIZE_Y	 800
-#define WINSTYLE	 WS_CAPTION | WS_SYSMENU
+#define WINSTART_X	 200
+#define WINSTART_Y	 100
+#define WINSIZE_X	 400
+#define WINSIZE_Y	 600
+#define WINSTYLE	WS_POPUP | WS_BORDER | WS_SYSMENU   // WS_CAPTION  | WS_SYSMENU |
 //=========================이걸 바꿔주면 변화생김 엠피플레이어처럼
 #endif 
 

@@ -61,7 +61,7 @@ constexpr auto 대신int 등등..
 constexpr auto soundBuffer = 10;
 constexpr auto extraSoundChannel = 5;
 constexpr auto totalSoundChannel = soundBuffer + extraSoundChannel;
-
+//c++ 스타일로 다시함
 class SoundManager:public SingletonBase<SoundManager>
 {
 private:

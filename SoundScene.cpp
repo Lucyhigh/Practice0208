@@ -3,10 +3,16 @@
 
 HRESULT SoundScene::init(void)
 {
-	IMAGEMANAGER->addImage("¿¤µç¸µ","Resources/Images/BackGround/Ring.bmp",WINSIZE_X,WINSIZE_Y);
+	IMAGEMANAGER->addImage("¿¤µç¸µ","Resources/Images/BackGround/Ring.bmp",WINSIZE_X, CENTER_Y);
+	IMAGEMANAGER->addImage("¿¤µç¸µ","Resources/Images/BackGround/CHUU.bmp",WINSIZE_X, CENTER_Y);
+	IMAGEMANAGER->addImage("¿¤µç¸µ","Resources/Images/BackGround/SS.bmp",WINSIZE_X, CENTER_Y);
+	IMAGEMANAGER->addImage("¿¤µç¸µ","Resources/Images/BackGround/JUSTRing.bmp",WINSIZE_X, CENTER_Y);
+	IMAGEMANAGER->addImage("¿¤µç¸µ","Resources/Images/BackGround/Ring.bmp",WINSIZE_X, CENTER_Y);
+	IMAGEMANAGER->addImage("¿¤µç¸µ","Resources/Images/BackGround/Ring.bmp",WINSIZE_X, CENTER_Y);
+	IMAGEMANAGER->addImage("¿¤µç¸µ","Resources/Images/BackGround/Ring.bmp",WINSIZE_X, CENTER_Y);
 
 	SOUNDMANAGER->addSound("Âù¶õ","Resources/Sounds/OBLIVION.wav", true, true);
-	//SOUNDMANAGER->setUp("Resources/Sounds/Golden.mp3", SOUND_BGM, true, true);
+	//SOUNDMANAGER->setUp("Resources/Sounds/Golden.mp3", SOUND_BGM, true, true); c½ºÅ¸ÀÏ
 	return S_OK;
 }
 
@@ -19,7 +25,7 @@ void SoundScene::update(void)
 	if (KEYMANAGER->isOnceKeyDown(VK_RETURN))
 	{
 		SOUNDMANAGER->play("Âù¶õ", 1.0f);
-		//SOUNDMANAGER->play(SOUND_BGM, 1.0f);
+		//SOUNDMANAGER->play(SOUND_BGM, 1.0f);  c½ºÅ¸ÀÏ
 	}
 	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
 	{
@@ -38,7 +44,7 @@ void SoundScene::update(void)
 
 void SoundScene::render(void)
 {
-	IMAGEMANAGER->render("¿¤µç¸µ", getMemDC());
+	IMAGEMANAGER->render("¿¤µç¸µ", getMemDC(),0,CENTER_Y);
 }
 
 SoundScene::SoundScene()

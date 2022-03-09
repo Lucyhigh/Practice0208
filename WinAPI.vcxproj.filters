@@ -119,8 +119,12 @@
       <Filter>Store</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="SoundManager.cpp" />
-    <ClCompile Include="SoundScene.cpp" />
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>API\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundScene.cpp">
+      <Filter>API\ExamClass</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameNode.h">
@@ -244,8 +248,12 @@
       <Filter>Store</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="SoundManager.h" />
-    <ClInclude Include="SoundScene.h" />
+    <ClInclude Include="SoundManager.h">
+      <Filter>API\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundScene.h">
+      <Filter>API\ExamClass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="API">
